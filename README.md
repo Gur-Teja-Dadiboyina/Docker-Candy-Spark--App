@@ -41,3 +41,9 @@ You’ll see Candy Spark running inside a container 🚀
 
 <img width="803" height="720" alt="Screenshot 2025-10-09 171333" src="https://github.com/user-attachments/assets/a65617b2-7099-4d4e-8e8e-7b6644cad0fe" />
 
+# 👩‍💻 Contributing
+Changes and improvements are more than welcome!<br>
+Feel free to fork, make changes in a new branch, and open a pull request.<br>
+
+If you add new candy types, animations, or Docker optimizations, that’d be awesome 🍭
+
