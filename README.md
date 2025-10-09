@@ -1,5 +1,5 @@
 # 🧁 Candy Spark
-A fun, colorful, and responsive match-3 candy game built with HTML, CSS, and JavaScript — inspired by the mechanics of Candy Crush but with unique features like a 2-minute timer, score tracker, and special candies that create chain reactions!
+A fun, colorful, and responsive match-3 candy game built with HTML, CSS, and JavaScript — inspired by the mechanics of Candy Crush but with unique features like a 2-minute timer, score tracker, and special candies that create chain reactions!<br>
  🎮 Made just for fun — match, swap, and spark your way to the highest score!
 
  
@@ -32,8 +32,8 @@ Open your terminal in the project folder and run:
  <pre>```docker run -d -p 8080:80 --name candy-spark candy-spark-game
 ```</pre>
 
-Now open your browser and go to:
-👉 [Link Text](http://localhost:8080)
+Now open your browser and go to:<br>
+👉 (http://localhost:8080)<br>
 You’ll see Candy Spark running inside a container 🚀
 
 # 📸 Screenshot
