@@ -9,7 +9,7 @@ Follow these steps exactly 👇
 
 ## 1️⃣ Create a Dockerfile
 In your project folder (where index.html is located), create a file named Dockerfile and add this code:
-<pre>```
+<pre>
 # Use official Nginx image as base
 FROM nginx:alpine
 
@@ -21,16 +21,16 @@ EXPOSE 80
 
 # Start Nginx server
 CMD ["nginx", "-g", "daemon off;"]
- ```</pre>
+ </pre>
 
 ## 2️⃣ Build the Docker Image
 Open your terminal in the project folder and run:
-<pre>``docker build -t candy-spark-game .
- ```</pre>
+<pre>docker build -t candy-spark-game .
+ </pre>
 
  ## 3️⃣ Run the Docker Container
- <pre>```docker run -d -p 8080:80 --name candy-spark candy-spark-game
-```</pre>
+ <pre>docker run -d -p 8080:80 --name candy-spark candy-spark-game
+</pre>
 
 Now open your browser and go to:<br>
 👉 (http://localhost:8080)<br>
