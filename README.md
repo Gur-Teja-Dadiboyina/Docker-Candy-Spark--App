@@ -37,6 +37,7 @@ Now open your browser and go to:
 You’ll see Candy Spark running inside a container 🚀
 
 # 📸 Screenshot
-![Candy Spark Screenshot](screenshot.png)
 
+
+<img width="803" height="720" alt="Screenshot 2025-10-09 171333" src="https://github.com/user-attachments/assets/a65617b2-7099-4d4e-8e8e-7b6644cad0fe" />
 
