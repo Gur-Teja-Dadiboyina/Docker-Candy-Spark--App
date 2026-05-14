@@ -10,46 +10,37 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-    - name: Deploy to EC2
-      uses: appleboy/ssh-action@v1.0.3
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1.0.3
 
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.EC2_SSH_KEY }}
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
 
-        script: |
+          script: |
+            sudo apt update -y
+            sudo apt install git -y
 
-          # Install git if missing
-          sudo apt update -y
-          sudo apt install git -y
+            if [ ! -d "/home/ubuntu/Docker-Candy-Spark--App" ]; then
+              git clone https://github.com/Gur-Teja-Dadiboyina/Docker-Candy-Spark--App.git /home/ubuntu/Docker-Candy-Spark--App
+            fi
 
-          # Clone repo first time
-          if [ ! -d "/home/ubuntu/Docker-Candy-Spark--App" ]; then
-            git clone https://github.com/Gur-Teja-Dadiboyina/Docker-Candy-Spark--App.git /home/ubuntu/Docker-Candy-Spark--App
-          fi
+            cd /home/ubuntu/Docker-Candy-Spark--App
 
-          cd /home/ubuntu/Docker-Candy-Spark--App
+            git pull origin main
 
-          # Pull latest code
-          git pull origin main
+            docker stop candy-app || true
+            docker rm candy-app || true
+            docker rmi candy-app || true
 
-          # Stop old container
-          docker stop candy-app || true
-          docker rm candy-app || true
+            docker build -t candy-app .
 
-          # Remove old image
-          docker rmi candy-app || true
-
-          # Build latest image
-          docker build -t candy-app .
-
-          # Run new container
-          docker run -d \
-            --name candy-app \
-            -p 80:80 \
-            --restart unless-stopped \
-            candy-app
+            docker run -d \
+              --name candy-app \
+              -p 80:80 \
+              --restart unless-stopped \
+              candy-app
