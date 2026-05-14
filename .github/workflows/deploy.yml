@@ -41,6 +41,6 @@ jobs:
 
             docker run -d \
               --name candy-app \
-              -p 88:80 \
+              -p 80:80 \
               --restart unless-stopped \
               candy-app
